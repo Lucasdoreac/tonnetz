@@ -22,21 +22,34 @@ nav a:hover {
   text-decoration: underline;
 }
 
+.container {
+  display: flex;
+  height: calc(100vh - 140px); /* Adjust based on header/footer height */
+}
+
+.sidebar {
+  width: 300px;
+  padding: 1em;
+  background: #eef2f7;
+  overflow-y: auto;
+}
+
 main {
-  max-width: 800px;
-  margin: auto;
-  padding: 2em 1em;
-}
-
-section {
-  margin-bottom: 2.5em;
-}
-
-#tonnetz-svg, #tonnetz-interactive, #transformation-controls {
-  margin: 1em auto;
+  flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#tonnetz-svg {
+  width: 100%;
+  height: 100%;
+}
+
+#transformation-controls button {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5em;
 }
 
 #transformation-controls button {

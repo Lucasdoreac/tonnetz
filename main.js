@@ -103,18 +103,25 @@ class TonnetzUI {
 
   setupEventListeners() {
     const nodes = this.svg.selectAll('g g');
+    const interactiveText = this.d3.select('#interactive-text');
+
     nodes.on('mouseover', (event, d) => {
         this.highlightChord(d);
+        interactiveText.text(`A nota ${d.note} é a fundamental de um acorde de ${d.note} maior.`);
     });
+
     nodes.on('mouseout', () => {
         this.clearHighlights();
+        interactiveText.text('Passe o mouse ou clique em um nó para começar.');
     });
+
     nodes.on('click', async (event, d) => {
         this.activeNode = d;
         await this.audio.start();
         const chord = this.chords[d.note] || this.chords[d.note + 'm'];
         if (chord) {
             this.audio.playChord(chord);
+            interactiveText.html(`Você selecionou <strong>${d.note}</strong>. Agora, aplique uma transformação.`);
         }
     });
 
@@ -161,20 +168,21 @@ class TonnetzUI {
   applyTransformation(type) {
     if (!this.activeNode) return;
 
-    const { x, y } = this.activeNode;
+    const { x, y, note: fromNote } = this.activeNode;
     let targetId;
+    let transformName = '';
 
     switch (type) {
       case 'P':
-        // Parallel transformation is more complex in this model and requires chord analysis.
-        // This is a simplified placeholder.
         console.log("Parallel transformation not fully implemented in this model.");
         return;
       case 'R': // Relative
         targetId = `${x},${y+1}`;
+        transformName = 'Relativo';
         break;
       case 'L': // Leittonwechsel
         targetId = `${x - 1},${y + 1}`;
+        transformName = 'Leittonwechsel';
         break;
       default:
         return;
@@ -187,6 +195,7 @@ class TonnetzUI {
       const chord = this.chords[targetNode.note] || this.chords[targetNode.note + 'm'];
       if (chord) {
         this.audio.playChord(chord);
+        this.d3.select('#interactive-text').html(`Transformação <strong>${transformName}</strong> de <strong>${fromNote}</strong> para <strong>${targetNode.note}</strong>.`);
       }
     }
   }
