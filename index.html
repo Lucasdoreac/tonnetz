@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tonnetz: Geometria & Harmonia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Tonnetz: Geometria e Harmonia Musical</h1>
+    <nav>
+      <a href="#intro">Introdução</a>
+      <a href="#geometria">Geometria</a>
+      <a href="#harmonia">Harmonia</a>
+      <a href="#interativo">Interatividade</a>
+      <a href="#referencias">Referências</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="intro">
+      <h2>O que é Tonnetz?</h2>
+      <p>
+        O Tonnetz é uma representação gráfica das relações harmônicas entre notas, acordes e intervalos, muito utilizada na análise musical e compreensão da harmonia ocidental.
+      </p>
+      <p>
+        Historicamente, foi desenvolvido no século XIX para visualizar conexões entre triades maiores/menores e operações como paralelo, relativo e Leittonwechsel.
+      </p>
+    </section>
+
+    <section id="geometria">
+      <h2>Geometria do Tonnetz</h2>
+      <p>
+        O Tonnetz tradicional é formado por uma malha hexagonal, onde cada vértice representa uma nota, e as conexões representam intervalos harmônicos (terças maiores, menores e quintas justas).
+      </p>
+      <div id="tonnetz-svg"></div>
+    </section>
+
+    <section id="harmonia">
+      <h2>Harmonia e Transformações</h2>
+      <p>
+        As transformações harmônicas são operações que alteram um acorde em outro, mantendo algumas notas em comum. O Tonnetz é uma ferramenta poderosa para visualizar essas transformações.
+      </p>
+      <ul>
+        <li><strong>Paralelo (P):</strong> Transforma um acorde maior em seu homônimo menor, e vice-versa, alterando apenas a terça do acorde. Exemplo: Dó Maior (C-E-G) ↔ Dó Menor (C-Eb-G).</li>
+        <li><strong>Relativo (R):</strong> Conecta um acorde maior ao seu relativo menor, que compartilha duas notas em comum. Exemplo: Dó Maior (C-E-G) ↔ Lá Menor (A-C-E).</li>
+        <li><strong>Leittonwechsel (L):</strong> Troca a fundamental de um acorde maior pela sua sensível, resultando em um acorde menor. Exemplo: Dó Maior (C-E-G) ↔ Mi Menor (E-G-B).</li>
+      </ul>
+      <p>Use os botões na área interativa para aplicar essas transformações e observar as mudanças no Tonnetz.</p>
+    </section>
+
+    <section id="como-usar">
+        <h2>Como Usar</h2>
+        <p>
+            1. <strong>Explore os acordes:</strong> Passe o mouse sobre os nós do Tonnetz para ver os acordes serem destacados.<br>
+            2. <strong>Ouça os acordes:</strong> Clique em um nó para ouvir o som do acorde correspondente.<br>
+            3. <strong>Aplique transformações:</strong> Após selecionar um acorde, use os botões "Paralelo", "Relativo" e "Leittonwechsel" para transformá-lo e ver a mágica acontecer.
+        </p>
+    </section>
+
+    <section id="interativo">
+      <h2>Área Interativa (clique nos acordes!)</h2>
+      <div id="tonnetz-interactive"></div>
+      <div id="transformation-controls">
+        <button data-transform="P">Paralelo (P)</button>
+        <button data-transform="R">Relativo (R)</button>
+        <button data-transform="L">Leittonwechsel (L)</button>
+      </div>
+    </section>
+
+    <section id="referencias">
+      <h2>Referências e Leituras Adicionais</h2>
+      <ul>
+        <li><a href="https://www.jstor.org/stable/10.1525/jmt.2008.52.1.1" target="_blank">Callender, Quinn, & Tymoczko (2008). Generalized Tonnetze. Journal of Music Theory</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Tonnetz" target="_blank">Wikipedia: Tonnetz</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Página criada para fins educativos e hospedada via GitHub Pages.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
