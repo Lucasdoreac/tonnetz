@@ -3,58 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tonnetz: Geometria & Harmonia</title>
+  <title>Tonnetz Geométrico</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>Tonnetz: Geometria e Harmonia Musical</h1>
-    <nav>
-      <a href="#intro">Introdução</a>
-      <a href="#geometria">Geometria</a>
-      <a href="#harmonia">Harmonia</a>
-      <a href="#interativo">Interatividade</a>
-      <a href="#referencias">Referências</a>
-    </nav>
+    <h1>Tonnetz Geométrico</h1>
+    <p>Explore os padrões geométricos dos acordes.</p>
   </header>
-
-  <div class="container">
-    <aside class="sidebar">
-      <section id="intro">
-        <h2>O que é Tonnetz?</h2>
-        <p>
-          O Tonnetz é uma representação gráfica das relações harmônicas entre notas, acordes e intervalos.
-        </p>
-      </section>
-      <section id="explanation">
-        <h2>Explicação Interativa</h2>
-        <p id="interactive-text">Passe o mouse ou clique em um nó para começar.</p>
-      </section>
-      <section id="transformation-controls">
-        <h2>Transformações</h2>
-        <button data-transform="P">Paralelo (P)</button>
-        <button data-transform="R">Relativo (R)</button>
-        <button data-transform="L">Leittonwechsel (L)</button>
-      </section>
-       <section id="referencias">
-        <h2>Referências</h2>
-        <ul>
-          <li><a href="https://www.jstor.org/stable/10.1525/jmt.2008.52.1.1" target="_blank">Generalized Tonnetze</a></li>
-          <li><a href="https://en.wikipedia.org/wiki/Tonnetz" target="_blank">Wikipedia</a></li>
-        </ul>
-      </section>
-    </aside>
-    <main>
-      <div id="tonnetz-svg"></div>
-    </main>
-  </div>
-
-  <footer>
-    <p>Página criada para fins educativos e hospedada via GitHub Pages.</p>
-  </footer>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
+  <main>
+    <div id="tonnetz-container"></div>
+  </main>
   <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

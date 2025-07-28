@@ -1,75 +1,47 @@
 body {
   font-family: Arial, sans-serif;
-  color: #1a2438;
-  background: #f6f8fa;
+  color: #333;
+  background: #f0f0f0;
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 header {
-  background: #395886;
-  color: #fff;
   padding: 1em;
-  text-align: center;
-}
-
-nav a {
-  color: #dae1ee;
-  margin: 0 1em;
-  text-decoration: none;
-}
-nav a:hover {
-  text-decoration: underline;
-}
-
-.container {
-  display: flex;
-  height: calc(100vh - 140px); /* Adjust based on header/footer height */
-}
-
-.sidebar {
-  width: 300px;
-  padding: 1em;
-  background: #eef2f7;
-  overflow-y: auto;
 }
 
 main {
-  flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: calc(100vh - 100px);
 }
 
-#tonnetz-svg {
-  width: 100%;
-  height: 100%;
+#tonnetz-container {
+  width: 90vw;
+  height: 90vh;
 }
 
-#transformation-controls button {
-  display: block;
-  width: 100%;
-  margin-bottom: 0.5em;
+.node text {
+  pointer-events: none;
+  font-weight: bold;
 }
 
-#transformation-controls button {
-  margin: 0 0.5em;
-  padding: 0.5em 1em;
-  background-color: #395886;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.link {
+  stroke: #999;
+  stroke-opacity: 0.6;
 }
 
-#transformation-controls button:hover {
-  background-color: #1a2438;
+.highlight .link {
+  stroke: #ff6347;
+  stroke-width: 2px;
 }
 
-footer {
-  background: #395886;
-  color: #fff;
-  text-align: center;
-  padding: 1em;
-  margin-top: 3em;
+.highlight .node circle {
+  fill: #ff6347;
+}
+
+.highlight .node text {
+  fill: #fff;
 }
