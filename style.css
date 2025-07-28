@@ -21,6 +21,20 @@ main {
 #tonnetz-container {
   width: 90vw;
   height: 90vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#start-button {
+  padding: 1em 2em;
+  font-size: 1.2em;
+  cursor: pointer;
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
 .node text {

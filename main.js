@@ -91,6 +91,7 @@ class Tonnetz {
 
   initAudio() {
     this.synth = new Tone.PolySynth(Tone.Synth).toDestination();
+    this.audioStarted = false;
   }
 
   draw() {
@@ -133,7 +134,11 @@ class Tonnetz {
       .on('mouseleave', () => this.clearHighlight(svg))
       .on('click', (event, d) => this.playChord(d));
 
-    node.on('click', (event, d) => {
+    node.on('click', async (event, d) => {
+        if (!this.audioStarted) {
+            await Tone.start();
+            this.audioStarted = true;
+        }
         this.synth.triggerAttackRelease(`${d.note}4`, '8n');
     });
 
@@ -164,12 +169,21 @@ class Tonnetz {
     svg.selectAll('.highlight').classed('highlight', false);
   }
 
-  playChord(chord) {
+  async playChord(chord) {
+    if (!this.audioStarted) {
+      await Tone.start();
+      this.audioStarted = true;
+    }
     const notes = chord.notes.map(n => `${n.note}4`);
     this.synth.triggerAttackRelease(notes, '1n');
   }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  new Tonnetz('#tonnetz-container');
+  const startButton = document.getElementById('start-button');
+  startButton.addEventListener('click', async () => {
+    await Tone.start();
+    startButton.style.display = 'none';
+    new Tonnetz('#tonnetz-container');
+  }, { once: true });
 });
